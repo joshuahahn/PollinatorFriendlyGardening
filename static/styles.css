@@ -42,3 +42,24 @@ nav ul li a:hover {
 main {
     margin: 28px;
 }
+
+/*TEST*/
+.quiz-container {
+    display: flex;
+    justify-content: space-between;
+}
+.image-container {
+    width: 200px;
+}
+.image-container img {
+    width: 100%;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.category {
+    width: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    text-align: center;
+}
