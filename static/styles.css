@@ -1,0 +1,44 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #ffd88f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #333; /* Dark background color */
+    padding: 18px; /* Padding around the navigation */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+    color: white; /* Text color */
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Spacing between list items */
+}
+
+nav ul li a {
+    color: white; /* Text color */
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Spacing between list items */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Bold text */
+}
+
+nav ul li a:hover {
+    color: #11ff00; /* Text color on hover */
+}
+
+main {
+    margin: 28px;
+}
