@@ -98,3 +98,42 @@ main {
 .full-width {
     width: 100%;
 }
+
+/* Memory Game */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+  }
+  
+  .card {
+    width: 100px;
+    height: 150px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .card.open {
+    background-color: #fff;
+  }
+  
+  .card.matched {
+    background-color: #8bc34a;
+  }
+  

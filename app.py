@@ -40,7 +40,7 @@ def learningmodules():
 
 @app.route('/learn/<id>')
 def learn(id):
-    return render_template('learn.html')
+    return render_template('learn.html', data=[id])
 
 @app.route('/about')
 def about():
@@ -52,9 +52,8 @@ def quiz():
 
 @app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():
-    # Process the quiz results here
     results = request.json
-    print(results)  # You can store the results in a database or file
+    print(results)
     return jsonify({'message': 'Quiz results received!'})
 
 if __name__ == '__main__':
