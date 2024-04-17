@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - My Website{% endblock %}
+
+{% block content %}
+
+<script>
+    let data = {{ data| tojson}}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'memory.js') }}"></script>
+
+<div class="row main-button-row mx-0">
+
+    <div class="container">
+        <div class="game-board" id="gameBoard"></div>
+        <button onclick="restartGame()">Restart Game</button>
+      </div>
+
+</div>
+
+<div class="row main-button-row-padding mx-0"></div>
+
+{% endblock %}

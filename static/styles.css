@@ -1,46 +1,17 @@
+/* Set height of body and html to 100% to ensure full viewport height */
+html,
 body {
-    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Remove margin and padding from body to prevent scrollbars */
+body {
     margin: 0;
     padding: 0;
-    background-color: #ffd88f;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Navbar styles */
-nav {
-    background-color: #333; /* Dark background color */
-    padding: 18px; /* Padding around the navigation */
-}
-
-nav ul {
-    list-style-type: none; /* Remove bullet points from the list */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
-
-nav ul li {
-    color: white; /* Text color */
-    display: inline; /* Display list items horizontally */
-    margin-right: 20px; /* Spacing between list items */
-}
-
-nav ul li a {
-    color: white; /* Text color */
-    display: inline; /* Display list items horizontally */
-    margin-right: 20px; /* Spacing between list items */
-}
-
-nav ul li a {
-    text-decoration: none; /* Remove underline from links */
-    font-weight: bold; /* Bold text */
-}
-
-nav ul li a:hover {
-    color: #11ff00; /* Text color on hover */
 }
 
 main {
-    margin: 28px;
+    margin: 0;
 }
 
 /*TEST*/
@@ -48,14 +19,17 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
 .image-container {
     width: 200px;
 }
+
 .image-container img {
     width: 100%;
     margin-bottom: 10px;
     cursor: pointer;
 }
+
 .category {
     width: 150px;
     padding: 10px;
@@ -63,3 +37,103 @@ main {
     border: 2px solid #ccc;
     text-align: center;
 }
+
+.main-button {
+    border: black solid;
+    height: 50%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.full-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vertical-center {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.main-button-row {
+    height: 30%;
+}
+
+.main-button-row-padding {
+    height: 35%;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.module-title {
+    font-weight: bold;
+}
+
+.learning-module-button {
+    border: black solid 1px;
+}
+
+.horizontal-center {
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Memory Game */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+  }
+  
+  .card {
+    width: 100px;
+    height: 150px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .card.open {
+    background-color: #fff;
+  }
+  
+  .card.matched {
+    background-color: #8bc34a;
+  }
+  

@@ -1,13 +1,48 @@
 from flask import Flask, render_template, request, jsonify
 
 from utils import QUIZ_PARAMS
+learningmodulesdata = {
+    "1": {
+        "id": 1,
+        "title": "Learn 1",
+        "completed": "false",
+    },
+        "2": {
+        "id": 2,
+        "title": "Learn 2",
+        "completed": "false",
+    },
+        "3": {
+        "id": 3,
+        "title": "Learn 3",
+        "completed": "false",
+    },
+        "4": {
+        "id": 4,
+        "title": "Learn 4",
+        "completed": "false",
+    },
+}
+
+#When done with lesson four, change this variable to true.
+allModulesComplete = False
 
 app = Flask(__name__)
 data = QUIZ_PARAMS["easy"] # default to easy mode
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', data=allModulesComplete)
+
+@app.route('/learningmodules')
+def learningmodules():
+    print(learningmodules)
+    print(type(learningmodules))
+    return render_template('learningmodules.html', data=learningmodulesdata)
+
+@app.route('/learn/<id>')
+def learn(id):
+    return render_template('learn.html', data=[id])
 
 @app.route('/about')
 def about():
@@ -23,9 +58,8 @@ def quiz(qn):
 
 @app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():
-    # Process the quiz results here
     results = request.json
-    print(results)  # You can store the results in a database or file
+    print(results)
     return jsonify({'message': 'Quiz results received!'})
 
 if __name__ == '__main__':
