@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 
+from utils import QUIZ_PARAMS
+
 app = Flask(__name__)
+data = QUIZ_PARAMS["easy"] # default to easy mode
 
 @app.route('/')
 def index():
@@ -10,9 +13,13 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/quiz')
-def quiz():
-    return render_template('quiz.html')
+@app.route('/quiz/<int:qn>')
+def quiz(qn):
+    plant_name = data[qn]["name"]
+    img_url = data[qn]["url"]
+    plant_label = data[qn]["gt"]
+
+    return render_template('quiz.html', plant_name=plant_name, img_url=img_url, plant_label=plant_label)
 
 @app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():

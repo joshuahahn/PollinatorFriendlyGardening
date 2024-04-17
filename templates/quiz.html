@@ -9,12 +9,11 @@
     <div class="quiz-container">
         <div class="image-container">
             <h3>Images to Classify</h3>
-            <img src="static/imgs/hotdog.png" class="draggable" data-food="hotdog">
-            <img src="static/imgs/hotdog.png" class="draggable" data-food="hotdog">
+            <img src="{{ url_for('static', filename='imgs/' + img_url) }}" class="draggable" data-food="hotdog" data-category="meat">
         </div>
 
         <div class="categories">
-            <h3>Categories</h3>
+            <h3>{{ plant_name }}</h3>
             <div class="category droppable" data-category="fruit">Fruit</div>
             <div class="category droppable" data-category="vegetable">Vegetable</div>
             <div class="category droppable" data-category="meat">Meat</div>
@@ -38,15 +37,28 @@
                 drop: function(event, ui) {
                     var droppedItem = ui.draggable;
                     var droppedFood = droppedItem.data("food");
+                    var droppedFoodCategory = droppedItem.data("category");
                     var category = $(this).data("category");
-                    console.log("Dropped", droppedFood, "into", category);
+                    console.log("Dropped", droppedFood, "into", category, "true label:", droppedFoodCategory);
                 }
             });
 
             // Submit quiz button
             $("#submit-btn").click(function() {
-                // Code to submit quiz results via AJAX
-                console.log("Quiz submitted!");
+                var quizResults = {}; // Object to store quiz results
+                // Send quiz results via AJAX
+                $.ajax({
+                    type: "POST",
+                    url: "/submit_quiz",
+                    contentType: "application/json",
+                    data: JSON.stringify(quizResults),
+                    success: function(response) {
+                        console.log("Quiz submitted successfully!");
+                    },
+                    error: function(error) {
+                        console.error("Error submitting quiz:", error);
+                    }
+                });
             });
         });
     </script>
