@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Learning Modules{% endblock %}
+
+{% block content %}
+
+<script>
+    let data = {{ data| tojson}}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learningmodules.js') }}"></script>
+
+<h1>Learning Modules</h1>
+<div class="row">
+    <div class="col-md-12" id="main-container">
+
+    </div>
+</div>
+{% endblock %}

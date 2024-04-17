@@ -3,9 +3,37 @@
 {% block title %}Home - My Website{% endblock %}
 
 {% block content %}
-    <h2>Welcome to the Home Page</h2>
-    <p>This is the home page of My Website.</p>
-    <ul>
-        <li><a href="/quiz">Quiz</a></li>
-    </ul>
+
+<script>
+    let data = {{ data| tojson}}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
+
+<div class="row main-button-row-padding mx-0">
+    <div class="col-md-12">
+        <h1 class="horizontal-center center-text">Pollinator Friendly Gardening</h1>
+    </div>
+</div>
+
+<div class="row main-button-row mx-0">
+
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-3 main-button center-text" id="learn">
+        Learn
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-3 main-button center-text" id="quiz">
+        Quiz
+    </div>
+</div>
+
+<div class="row main-button-row-padding mx-0"></div>
+
 {% endblock %}
