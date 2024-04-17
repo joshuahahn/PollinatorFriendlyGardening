@@ -3,25 +3,24 @@
 {% block title %}Quiz{% endblock %}
 
 {% block content %}
-    <h2>Welcome to the Home Page</h2>
-    <h1>Food Quiz</h1>
+    <h1>Knowledge Quiz</h1>
 
     <div class="quiz-container">
         <div class="image-container">
-            <h3>Images to Classify</h3>
-            <img src="{{ url_for('static', filename='imgs/' + img_url) }}" class="draggable" data-food="hotdog" data-category="meat">
+            <h3>Images to Classify: {{ plant_name }}</h3>
+            <img src="{{ url_for('static', filename='imgs/' + img_url) }}" class="draggable" data-name="{{ plant_name }}" data-category="{{ plant_label }}">
         </div>
 
         <div class="categories">
-            <h3>{{ plant_name }}</h3>
-            <div class="category droppable" data-category="fruit">Fruit</div>
-            <div class="category droppable" data-category="vegetable">Vegetable</div>
-            <div class="category droppable" data-category="meat">Meat</div>
+            <h3>category</h3>
+            <div class="category droppable" data-category="bee">Bee</div>
+            <div class="category droppable" data-category="bird">Bird</div>
+            <div class="category droppable" data-category="insect">Insect</div>
         </div>
     </div>
 
-    <button id="submit-btn">Submit Quiz</button>
-
+    <!-- <button id="submit-btn">Submit Quiz</button> -->
+    <button id="nxt">Next question</button>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> <!-- Include jQuery UI -->
     <script>
@@ -36,30 +35,33 @@
                 accept: ".draggable",
                 drop: function(event, ui) {
                     var droppedItem = ui.draggable;
-                    var droppedFood = droppedItem.data("food");
+                    var droppedPlant = droppedItem.data("name");
                     var droppedFoodCategory = droppedItem.data("category");
                     var category = $(this).data("category");
-                    console.log("Dropped", droppedFood, "into", category, "true label:", droppedFoodCategory);
+                    console.log("Dropped", droppedPlant, "into", category, "true label:", droppedFoodCategory);
                 }
             });
 
+            $("#nxt").click(function () {
+                window.location.href = "/quiz/" + "{{ nxt_id }}"
+            })
             // Submit quiz button
-            $("#submit-btn").click(function() {
-                var quizResults = {}; // Object to store quiz results
-                // Send quiz results via AJAX
-                $.ajax({
-                    type: "POST",
-                    url: "/submit_quiz",
-                    contentType: "application/json",
-                    data: JSON.stringify(quizResults),
-                    success: function(response) {
-                        console.log("Quiz submitted successfully!");
-                    },
-                    error: function(error) {
-                        console.error("Error submitting quiz:", error);
-                    }
-                });
-            });
+            // $("#submit-btn").click(function() {
+            //     var quizResults = {}; // Object to store quiz results
+            //     // Send quiz results via AJAX
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "/submit_quiz",
+            //         contentType: "application/json",
+            //         data: JSON.stringify(quizResults),
+            //         success: function(response) {
+            //             console.log("Quiz submitted successfully!");
+            //         },
+            //         error: function(error) {
+            //             console.error("Error submitting quiz:", error);
+            //         }
+            //     });
+            // });
         });
     </script>
 {% endblock %}

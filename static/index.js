@@ -4,7 +4,7 @@ $(function () {
   });
 
   $("#quiz").click(function () {
-    window.location.href = `./quiz`;
+    window.location.href = `./quiz/0`;
   });
 
   if (data == true) {

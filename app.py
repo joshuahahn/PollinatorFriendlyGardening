@@ -53,8 +53,13 @@ def quiz(qn):
     plant_name = data[qn]["name"]
     img_url = data[qn]["url"]
     plant_label = data[qn]["gt"]
+    nxt_id = data[qn]["nxt_id"]
+    return render_template('quiz.html', plant_name=plant_name, img_url=img_url, plant_label=plant_label, nxt_id=nxt_id)
 
-    return render_template('quiz.html', plant_name=plant_name, img_url=img_url, plant_label=plant_label)
+@app.route('/quiz/<string:qn>')
+def quiz_string(qn):
+    if qn == "submit": return render_template('quiz_submit.html', score=2, quiz_length=len(data))
+    return "oh no!"
 
 @app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():
