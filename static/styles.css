@@ -1,5 +1,19 @@
+:root {
+    /* Background color variable */
+    --bg-color: #FCD164;
+
+    --lighter-bg: #ffe7ac;
+    /* Accent color variable */
+    --accent-color: #7C9885;
+
+    --strong-accent: #03312E;
+
+    --button-color: #D3D3D3;
+}
+
 /* Set height of body and html to 100% to ensure full viewport height */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -35,7 +49,25 @@ main {
 
 .main-button {
     border: black solid;
-    height: 50%;
+    background-color: var(--button-color);
+    height: 100%;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.main-button:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.main-title {
+    font-size: 10rem;
+    height: 75%;
+    color: white;
+    background-color: var(--strong-accent);
+    border-radius: 5rem;
+    margin-top: 1rem;
 }
 
 .full-height {
@@ -48,7 +80,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #FCD164;
+    background-color: var(--bg-color);
 }
 
 .vertical-center {
@@ -72,7 +104,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .full-height {
@@ -84,7 +115,16 @@ main {
 }
 
 .learning-module-button {
+    font-size: 4rem;
     border: black solid 1px;
+    background-color: var(--button-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learning-module-button:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
 }
 
 .horizontal-center {
@@ -95,6 +135,7 @@ main {
     width: 100%;
 }
 
+
 /* Memory Game */
 .memory-body {
     display: flex;
@@ -102,8 +143,8 @@ main {
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
-  }
-  
+}
+
 .container {
     text-align: center;
     display: flex;
@@ -133,7 +174,7 @@ main {
 .card.matched {
     background-color: #7C9885;
 }
-  
+
 .memory-title {
     font-size: 30px;
     text-align: center;
@@ -142,6 +183,54 @@ main {
     align-items: center;
     width: 100%;
     padding: 30px;
+}
+
+/** Bee **/
+
+.bee {
+    position: absolute;
+    height: 10rem;
+    top: 50%;
+    /* Start at the center vertically */
+    left: 50%;
+    /* Start at the center horizontally */
+    transform: translate(-50%, -50%);
+    /* Center the bee */
+    transition: all 0.5s ease;
+    /* Smooth transition for movement */
+}
+
+.learning-module-title {
+    font-size: 8rem;
+    height: 75%;
+    color: white;
+    background-color: var(--strong-accent);
+    border-radius: 5rem;
+    margin-top: 1rem;
+}
+
+.learning-module-row-padding {
+    height: 20%;
+}
+
+.learning-module-buttons {
+    height: 80%;
+}
+
+.learning-buttons {
+    background-color: var(--lighter-bg);
+    height: calc(100vh - 150px);
+    /* Adjust height to cover remaining vertical space */
+    /* Add padding for spacing */
+    border-radius: 10px;
+    /* Add border radius for styling */
+    overflow-y: auto;
+    /* Add vertical scrollbar if content exceeds height */
+}
+
+.learning-button-row {
+    height: 30%;
+    padding: 20px;
 }
 
 .memory-image {
