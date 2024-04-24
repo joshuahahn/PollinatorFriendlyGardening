@@ -3,36 +3,41 @@
 {% block title %}Home - My Website{% endblock %}
 
 {% block content %}
-    <script>
-        let data = {{ data| tojson}}
-    </script>
-    <script type="text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
+<script>
+    let data = {{ data| tojson}}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
 
-    <div class="row main-button-row-padding mx-0">
-        <div class="col-md-12">
-            <h1 class="horizontal-center center-text">Pollinator Friendly Gardening</h1>
-        </div>
+<div class="row main-button-row-padding mx-0">
+    <div class="col-md-12 horizontal-center center-text main-title">
+        Pollinator Friendly Gardening
+    </div>
+</div>
+
+<div class="row main-button-row mx-0">
+
+    <div class="col-md-2">
+
     </div>
 
-    <div class="row main-button-row mx-0">
-
-        <div class="col-md-2">
-
-        </div>
-
-        <div class="col-md-3 main-button center-text" id="learn">
-            Learn
-        </div>
-
-        <div class="col-md-2">
-
-        </div>
-
-        <div class="col-md-3 main-button center-text" id="quiz">
-            Quiz
-        </div>
+    <div class="col-md-3 main-button center-text" id="learn">
+        Learn
     </div>
 
-    <div class="row main-button-row-padding mx-0"></div>
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-3 main-button center-text" id="quiz">
+        Quiz
+    </div>
+</div>
+
+<div class="row main-button-row-padding mx-0">
+    <div class="col-md-12 garden">
+        <img src="https://static.vecteezy.com/system/resources/previews/027/145/940/original/small-bee-on-transparent-background-ai-generated-png.png"
+            class="bee" alt="Bee">
+    </div>
+</div>
 
 {% endblock %}

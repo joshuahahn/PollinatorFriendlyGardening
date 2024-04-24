@@ -35,11 +35,11 @@ $(function () {
 
     let icon = '<i class="glyphicon glyphicon-check justify-right"></i>';
     let newLearningModuleButton = $(
-      `<div class=\"row\">
+      `<div class=\"row learning-button-row\">
             <div class=\"col-md-2\">
             </div>
             
-            <div class=\"col-md-8 learning-module-button\">
+            <div class=\"col-md-8 learning-module-button center-text\">
                 <span class=\"module-title\">${title}</span>${completionArray[id]["leftIcon"]}
                 ${completionArray[id]["rightIcon"]}
             </div>
