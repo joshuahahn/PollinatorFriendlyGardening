@@ -110,32 +110,28 @@ main {
     justify-content: center;
     align-items: center;
     padding: 30px;
-    width: 100%;
 }
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 150px);
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    grid-template: min-content;
 }
 
 .card {
-    width: 100px;
-    height: 150px;
-    background-color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 150px;
+    height: 220px;
+    background-color: #FFFFFF;
     font-size: 24px;
     cursor: pointer;
-}
-
-.card.open {
-    background-color: #fff;
+    border-radius: 15px;
 }
 
 .card.matched {
-    background-color: #8bc34a;
+    background-color: #7C9885;
 }
   
 .memory-title {
@@ -146,4 +142,13 @@ main {
     align-items: center;
     width: 100%;
     padding: 30px;
+}
+
+.memory-image {
+    width: 150px;
+    height: 180px;
+}
+
+.hidden-img {
+    visibility: hidden;
 }

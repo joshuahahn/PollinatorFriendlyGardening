@@ -11,8 +11,8 @@ learningmodulesdata = {
         "pairs": {
             "Dahlia": imgsrc + "bees/dahlia.Jpg",
             "Fennel": imgsrc + "bees/fennel.jpg",
-            "Geranium": imgsrc + "geranium.jpg",
-            "Heliotrope": imgsrc + "heliotrope.jpg",
+            "Geranium": imgsrc + "bees/geranium.jpg",
+            "Heliotrope": imgsrc + "bees/heliotrope.jpg",
         }
     },
     "2": {
