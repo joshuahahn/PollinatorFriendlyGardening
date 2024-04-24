@@ -1,12 +1,31 @@
 $(document).ready(function() {
-    const symbols = ['A', 'B', 'C', 'D', 'E', 'F'];
-    const totalPairs = symbols.length;
+    let id = data[0];
+    let currData = data[1][id];
+    let pairs = currData["pairs"];
+    let flowerNames = Object.keys(pairs);
+    let title = currData["title"];
+
+    const totalPairs = pairs.length;
     let openCards = [];
     let matchedPairs = 0;
     let moves = 0;
+
+    $('#title').text(title);
+
+    function setupGame() {
+
+      const shuffledSymbols = shuffle([...flowerNames, ...flowerNames]);
   
-    function createCard(symbol) {
-      const card = $('<div class="card"><span class="hidden">' + symbol + '</span></div>');
+      shuffledSymbols.forEach(function(flowerName) {
+        const card = createCard(flowerName);
+        $('#gameBoard').append(card);
+      });
+  
+      updateMoves();
+    }
+  
+    function createCard(flowerName) {
+      const card = $('<div class="card"><span class="hidden">' + flowerName + '</span></div>');
       card.on('click', function() {
         flipCard($(this));
       });
@@ -40,16 +59,17 @@ $(document).ready(function() {
         if (matchedPairs === totalPairs) {
           // Game is won !!! !! !! 
         }
+
+        openCards = [];
       } else {
         setTimeout(function(){
             card1.removeClass('open');
             card2.removeClass('open');
             card1.children().first().addClass('hidden');
             card2.children().first().addClass('hidden');
+            openCards = [];
         }, 1000); 
       }
-  
-      openCards = [];
     }
   
     function updateMoves() {
@@ -63,17 +83,6 @@ $(document).ready(function() {
       moves = 0;
       updateMoves();
       setupGame();
-    }
-  
-    function setupGame() {
-      const shuffledSymbols = shuffle([...symbols, ...symbols]);
-  
-      shuffledSymbols.forEach(function(symbol) {
-        const card = createCard(symbol);
-        $('#gameBoard').append(card);
-      });
-  
-      updateMoves();
     }
   
     function shuffle(array) {
