@@ -13,7 +13,8 @@ learningmodulesdata = {
             "Fennel": imgsrc + "bees/fennel.jpg",
             "Geranium": imgsrc + "bees/geranium.jpg",
             "Heliotrope": imgsrc + "bees/heliotrope.jpg",
-        }
+        },
+        "text": "Every good garden contains a diverse mix of flowers. Even better gardens attract a diverse mix of pollinators. In the following lessons, we will learn about what flowers attract which pollinators, starting with bee flowers!"
     },
     "2": {
         "id": 2,
@@ -55,9 +56,13 @@ def learningmodules():
     print(type(learningmodules))
     return render_template('learningmodules.html', data=learningmodulesdata)
 
+@app.route('/learn/game<id>')
+def learn_game(id):
+    return render_template('learn.html', data=[id, learningmodulesdata])
+
 @app.route('/learn/<id>')
 def learn(id):
-    return render_template('learn.html', data=[id, learningmodulesdata])
+    return render_template('learninfo.html', data=[id, learningmodulesdata])
 
 @app.route('/about')
 def about():

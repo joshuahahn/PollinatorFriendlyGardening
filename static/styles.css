@@ -266,3 +266,28 @@ main {
 .quiz-submit-wrapper {
     padding: 20px
 }
+
+.bodytext {
+    width: 70%;
+    text-align: center;
+    padding-top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+}
+
+.imagecontainer {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.hehe {
+    border-radius: 15px;
+}
+
+.homebtn {
+    
+}

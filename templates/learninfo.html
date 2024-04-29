@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - My Website{% endblock %}
+
+{% block content %}
+
+<script>
+    let data = {{ data| tojson}}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+
+<div id="home" class="homebtn"></div>
+<div id="title" class="memory-title"></div>
+<div id="bodytext" class="bodytext"></div>
+<div class="container">
+    <div class="row imagecontainer">
+        <div class="col-md-3">
+            <img src="" class="memory-image hehe" alt="" id="img1">
+        </div>
+        <div class="col-md-3">
+            <img src="" class="memory-image hehe" alt="" id="img2">
+        </div>
+        <div class="col-md-3">
+            <img src="" class="memory-image hehe" alt="" id="img3">
+        </div>
+        <div class="col-md-3">
+            <img src="" class="memory-image hehe" alt="" id="img4">
+        </div>
+    </div>
+</div>
+
+<div class="row main-button-row-padding mx-0"></div>
+
+{% endblock %}
