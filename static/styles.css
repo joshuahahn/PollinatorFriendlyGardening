@@ -25,26 +25,47 @@ main {
 
 /*TEST*/
 .quiz-container {
+    margin: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .image-container {
     width: 200px;
+    height: 200px;
 }
 
 .image-container img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     margin-bottom: 10px;
     cursor: pointer;
 }
 
+.nxt-btn {
+    margin: 0 auto;
+    background-color: lightgreen;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+}
+
 .category {
-    width: 150px;
+    width: 250px;
+    height: 250px;
     padding: 10px;
     margin-bottom: 10px;
     border: 2px solid #ccc;
     text-align: center;
+    color: white;
+    background-color: #7C9885;
 }
 
 .main-button {
@@ -152,32 +173,28 @@ main {
     justify-content: center;
     align-items: center;
     padding: 30px;
-    width: 100%;
 }
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 150px);
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    grid-template: min-content;
 }
 
 .card {
-    width: 100px;
-    height: 150px;
-    background-color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 150px;
+    height: 220px;
+    background-color: #FFFFFF;
     font-size: 24px;
     cursor: pointer;
-}
-
-.card.open {
-    background-color: #fff;
+    border-radius: 15px;
 }
 
 .card.matched {
-    background-color: #8bc34a;
+    background-color: #7C9885;
 }
 
 .memory-title {
@@ -236,4 +253,42 @@ main {
 .learning-button-row {
     height: 30%;
     padding: 20px;
+}
+
+.memory-image {
+    width: 150px;
+    height: 180px;
+}
+
+.hidden-img {
+    visibility: hidden;
+}
+
+.quiz-submit-wrapper {
+    padding: 20px
+}
+
+.bodytext {
+    width: 70%;
+    text-align: center;
+    padding-top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+}
+
+.imagecontainer {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.hehe {
+    border-radius: 15px;
+}
+
+.glyphicon {
+    padding-left: 30px;
 }

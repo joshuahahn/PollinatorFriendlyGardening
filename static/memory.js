@@ -13,7 +13,6 @@ $(document).ready(function() {
     $('#title').text(title);
 
     function setupGame() {
-
       const shuffledSymbols = shuffle([...flowerNames, ...flowerNames]);
   
       shuffledSymbols.forEach(function(flowerName) {
@@ -25,7 +24,10 @@ $(document).ready(function() {
     }
   
     function createCard(flowerName) {
-      const card = $('<div class="card"><span class="hidden">' + flowerName + '</span></div>');
+      const card = $('<div class="card"> \
+        <img class="memory-image hidden-img" src=' + pairs[flowerName] + ' alt=\
+        ' + flowerName + '><span class="hidden">' + flowerName + '</span> \
+      </div>');
       card.on('click', function() {
         flipCard($(this));
       });
@@ -35,7 +37,8 @@ $(document).ready(function() {
     function flipCard(card) {
       if (!card.hasClass('open') && openCards.length < 2) {
         card.addClass('open');
-        card.children().first().removeClass('hidden');
+        card.children()[1].classList.remove('hidden');
+        card.children()[0].classList.remove('hidden-img');
         openCards.push(card);
         if (openCards.length === 2) {
           checkMatch();
@@ -48,8 +51,11 @@ $(document).ready(function() {
     function checkMatch() {
       const card1 = openCards[0];
       const card2 = openCards[1];
-      const symbol1 = card1.children().first().text();
-      const symbol2 = card2.children().first().text();
+      const symbol1 = card1.children()[1].textContent;
+      const symbol2 = card2.children()[1].textContent;
+
+      console.log(symbol1);
+      console.log(symbol2);
 
       if (symbol1 === symbol2) {
         card1.addClass('matched');
@@ -65,8 +71,10 @@ $(document).ready(function() {
         setTimeout(function(){
             card1.removeClass('open');
             card2.removeClass('open');
-            card1.children().first().addClass('hidden');
-            card2.children().first().addClass('hidden');
+            card1.children()[0].classList.add('hidden-img');
+            card2.children()[0].classList.add('hidden-img');
+            card1.children()[1].classList.add('hidden');
+            card2.children()[1].classList.add('hidden');
             openCards = [];
         }, 1000); 
       }

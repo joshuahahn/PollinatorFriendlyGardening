@@ -48,7 +48,7 @@ $(function () {
 
     $("#main-container").append(newLearningModuleButton);
     newLearningModuleButton.click(function () {
-      window.location.href = `../learn/${id}`;
+      window.location.href = `../learn/game${id}`;
     });
   }
 

@@ -6,21 +6,23 @@
     <h1>Knowledge Quiz</h1>
 
     <div class="quiz-container">
-        <div class="image-container">
-            <h3>Images to Classify: {{ plant_name }}</h3>
-            <img src="{{ url_for('static', filename='imgs/' + img_url) }}" class="draggable" data-name="{{ plant_name }}" data-category="{{ plant_label }}">
-        </div>
-
+        <h3>Pollinator Category</h3>
         <div class="categories">
-            <h3>category</h3>
             <div class="category droppable" data-category="bee">Bee</div>
             <div class="category droppable" data-category="bird">Bird</div>
             <div class="category droppable" data-category="insect">Insect</div>
         </div>
+        <h3>Images to Classify: {{ plant_name }}</h3>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='imgs/' + img_url) }}" class="draggable" data-name="{{ plant_name }}" data-category="{{ plant_label }}">
+        </div>
+
+        <button id="nxt" class="nxt-btn">Next question</button>
     </div>
+    
 
     <!-- <button id="submit-btn">Submit Quiz</button> -->
-    <button id="nxt">Next question</button>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> <!-- Include jQuery UI -->
     <script>
