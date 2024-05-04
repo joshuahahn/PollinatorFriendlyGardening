@@ -16,9 +16,7 @@ $(document).ready( function() {
         $(imgid).attr("alt", flowerNames[i-1]);
     }
 
-    var button = $("<button></button>");
-    var home_image = $("<img>");
-    home_image.attr("src", "/static/imgs/house-solid.svg");
-    button.append(home_image);
-    $("#home").append(button);
+    $("#homeButton").click(function(){
+        window.location.href = "/";
+    })
 })

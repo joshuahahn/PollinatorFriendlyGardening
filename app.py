@@ -22,10 +22,11 @@ learningmodulesdata = {
         "completed": "false",
         "pairs": {
             "Goldenrod": imgsrc + "bats/goldenrod.jpg",
-            "Narrow": imgsrc + "bats/narrow.jpg",
+            "Narrow": imgsrc + "bats/narrow.jpeg",
             "Spotted Beebalm": imgsrc + "bats/spotted_beebalm.png",
             "Mango": imgsrc + "/bats/mango.jpg"
-        }
+        },
+        "text": "Next, we will learn about flowers that are pollinated by bats. Contrary to bee flowers that tend to bloom & become brighter in the day, bat flowers tend to be pale & nocturnal."
     },
     "3": {
         "id": 3,
@@ -36,7 +37,8 @@ learningmodulesdata = {
             "Milkweed": imgsrc + "milkweed.jpg",
             "Passionflower": imgsrc + "passionflower.jpeg",
             "Snapdragon": imgsrc + "snapdragon.png"
-        }
+        },
+        "text": "Finally, we will learn about butterfly flowers. Like bee flowers, butterfly flowers tend to be brighter and bloom during the day. However, unlike bee flowers, butterfly flowers tend to be more flat, providing a landing space for the butterfly."
     }
 }
 

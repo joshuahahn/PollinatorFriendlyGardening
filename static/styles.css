@@ -291,3 +291,9 @@ main {
 .glyphicon {
     padding-left: 30px;
 }
+
+.homeButton {
+    margin-left: 30px;
+    margin-top: 30px;
+    background-color: red;
+}
