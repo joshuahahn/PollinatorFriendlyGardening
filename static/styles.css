@@ -6,7 +6,7 @@
     /* Accent color variable */
     --accent-color: #7C9885;
 
-    --strong-accent: #0d1010;
+    --strong-accent: #178560;
 
     --button-color: #D3D3D3;
 }
@@ -51,10 +51,17 @@ main {
 
 .nxt-btn {
     margin: 0 auto;
-    background-color: lightgreen;
     width: 180px;
     height: 60px;
     cursor: pointer;
+}
+.disable {
+    background-color: #d9d9d9;
+}
+
+.ready {
+    background-color: #52c41a;
+
 }
 
 .category {
@@ -66,11 +73,22 @@ main {
     text-align: center;
     color: white;
     background-color: #7C9885;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.category img {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
 }
 
 .main-button {
     border: black solid;
-    background-color: var(--button-color);
+    background-color: var(--strong-accent);
+    color: white;
     height: 100%;
     font-size: 4rem;
     cursor: pointer;
@@ -83,7 +101,7 @@ main {
 }
 
 .main-title {
-    font-size: 10rem;
+    font-size: 8rem;
     height: 75%;
     color: white;
     background-color: var(--strong-accent);
@@ -138,7 +156,7 @@ main {
 .learning-module-button {
     font-size: 4rem;
     border: black solid 1px;
-    background-color: var(--button-color);
+    background-color: var(--strong-accent);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -290,6 +308,10 @@ main {
 
 .glyphicon {
     padding-left: 30px;
+}
+
+.ready {
+
 }
 
 .homeButton {
