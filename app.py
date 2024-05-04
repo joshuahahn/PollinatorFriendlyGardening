@@ -33,10 +33,10 @@ learningmodulesdata = {
         "title": "Learn 3: Butterfly Flowers",
         "completed": "false",
         "pairs": {
-            "Mexican Petunia": imgsrc + "mexican_petunia.jpg",
-            "Milkweed": imgsrc + "milkweed.jpg",
-            "Passionflower": imgsrc + "passionflower.jpeg",
-            "Snapdragon": imgsrc + "snapdragon.png"
+            "Mexican Petunia": imgsrc + "butterflies/mexican_petunia.jpg",
+            "Milkweed": imgsrc + "butterflies/milkweed.jpg",
+            "Passionflower": imgsrc + "butterflies/passionflower.jpeg",
+            "Snapdragon": imgsrc + "butterflies/snapdragon.png"
         },
         "text": "Finally, we will learn about butterfly flowers. Like bee flowers, butterfly flowers tend to be brighter and bloom during the day. However, unlike bee flowers, butterfly flowers tend to be more flat, providing a landing space for the butterfly."
     }
@@ -61,6 +61,12 @@ def learningmodules():
 @app.route('/learn/game<id>')
 def learn_game(id):
     return render_template('learn.html', data=[id, learningmodulesdata])
+
+@app.route('/completed', methods=['POST'])
+def completed_quiz():
+    completed_id = request.form['value']
+    learningmodulesdata[completed_id]['completed'] = 'true'
+    return learningmodulesdata
 
 @app.route('/learn/<id>')
 def learn(id):

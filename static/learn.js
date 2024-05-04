@@ -19,4 +19,12 @@ $(document).ready( function() {
     $("#homeButton").click(function(){
         window.location.href = "/";
     })
+
+    $("#leftButton").click(function(){
+        window.location.href = "/learningmodules";
+    })
+
+    $("#rightButton").click(function(){
+        window.location.href = "/learn/game" + id.toString();
+    })
 })

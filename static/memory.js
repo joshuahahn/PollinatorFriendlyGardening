@@ -5,10 +5,11 @@ $(document).ready(function() {
     let flowerNames = Object.keys(pairs);
     let title = currData["title"];
 
-    const totalPairs = pairs.length;
     let openCards = [];
     let matchedPairs = 0;
     let moves = 0;
+
+    $("#rightButton").hide();
 
     $('#title').text(title);
 
@@ -54,16 +55,33 @@ $(document).ready(function() {
       const symbol1 = card1.children()[1].textContent;
       const symbol2 = card2.children()[1].textContent;
 
-      console.log(symbol1);
-      console.log(symbol2);
-
       if (symbol1 === symbol2) {
         card1.addClass('matched');
         card2.addClass('matched');
         matchedPairs++;
   
-        if (matchedPairs === totalPairs) {
-          // Game is won !!! !! !! 
+        console.log(matchedPairs);
+        console.log(Object.keys(pairs).length);
+        if (matchedPairs === Object.keys(pairs).length) {
+          // Game is won!!!
+          $("#rightButton").show();
+
+          // AJAX
+          $.ajax({
+            url: "/completed",
+            method: "POST",
+            data: {value: id},
+            dataType: "text",
+            success: function(response) {
+              console.log(id);
+            },
+            error: function(request, status, error) {
+              console.log("Error");
+              console.log(request);
+              console.log(status);
+              console.log(error);
+            }
+          })
         }
 
         openCards = [];
@@ -104,4 +122,20 @@ $(document).ready(function() {
     $('#restartBtn').on('click', restartGame);
   
     setupGame();
+
+    $("#homeButton").click(function(){
+      window.location.href = "/";
+    })
+
+    $("#homeButton").click(function(){
+      window.location.href = "/";
+    })
+
+    $("#leftButton").click(function(){
+        window.location.href = "/learn/" + id.toString();
+    })
+
+    $("#rightButton").click(function(){
+        window.location.href = "/learningmodules";
+    })
   });

@@ -9,6 +9,7 @@
 </script>
 <script type="text/javascript" src="{{ url_for('static', filename = 'memory.js') }}"></script>
 
+<button id="homeButton" class="homeButton">Home</button>
 <div class="row main-button-row mx-0">
     <div id="title" class="memory-title"></div>
     <div class="container">
@@ -16,6 +17,10 @@
     </div>
 </div>
 
-<div class="row main-button-row-padding mx-0"></div>
+<div class="btn-container">
+    <button id="leftButton" class="leftButton">To Learning Page</button>
+    <button id="rightButton" class="rightButton">To Learning Modules</button>
+</div>
+
 
 {% endblock %}

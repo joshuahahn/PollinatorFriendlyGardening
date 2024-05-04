@@ -205,7 +205,7 @@ main {
     width: 150px;
     height: 220px;
     background-color: #FFFFFF;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 15px;
 }
@@ -215,13 +215,13 @@ main {
 }
 
 .memory-title {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 30px;
+    padding: 10px;
 }
 
 /** Bee **/
@@ -288,7 +288,7 @@ main {
 .bodytext {
     width: 70%;
     text-align: center;
-    padding-top: 130px;
+    padding-top: 50px;
     margin-left: auto;
     margin-right: auto;
     font-size: 30px;
@@ -306,16 +306,53 @@ main {
     border-radius: 15px;
 }
 
-.glyphicon {
-    padding-left: 30px;
-}
-
-.ready {
-
-}
-
 .homeButton {
     margin-left: 30px;
     margin-top: 30px;
-    background-color: red;
+    background-color: #FCA311;
+    border: none;
+    color: blak;
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: fixed;
+    bottom: 50px;
+}
+
+.leftButton {
+    position: fixed;
+    left: 30px;
+    bottom: 50px;
+    background-color: #FCA311;
+    border: none;
+    color: blak;
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.rightButton {
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    background-color: #FCA311;
+    border: none;
+    color: blak;
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
