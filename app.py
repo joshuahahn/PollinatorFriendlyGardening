@@ -78,7 +78,11 @@ def quiz(qn):
 
 @app.route('/quiz/<string:qn>')
 def quiz_string(qn):
-    if qn == "submit": return render_template('quiz_submit.html', score=2, quiz_length=len(data))
+    score = request.args.get('score')
+    if qn == "submit":
+        if score is not None:
+            return render_template('quiz_submit.html', score=score, quiz_length=len(data))
+        return "score parameter missing"
     return "oh no!"
 
 @app.route('/submit_quiz', methods=['POST'])

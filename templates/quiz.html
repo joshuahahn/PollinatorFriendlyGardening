@@ -8,16 +8,25 @@
     <div class="quiz-container">
         <h3>Pollinator Category</h3>
         <div class="categories">
-            <div class="category droppable" data-category="bee">Bee</div>
-            <div class="category droppable" data-category="bird">Bird</div>
-            <div class="category droppable" data-category="insect">Insect</div>
+            <div class="category droppable" data-category="bees">
+                <div class="category-type">Bees</div>
+                <img src="{{ url_for('static', filename='imgs/bee.jpg') }}" alt="bee">
+            </div>
+            <div class="category droppable" data-category="butterflies">
+                <div class="category-type">Butterflies</div>
+                <img src="{{ url_for('static', filename='imgs/butterfly.jpg') }}" alt="bee">
+            </div>
+            <div class="category droppable" data-category="bats">
+                <div class="category-type">Bats</div>
+                <img src="{{ url_for('static', filename='imgs/bat.jpg') }}" alt="bee">
+            </div>
         </div>
         <h3>Images to Classify: {{ plant_name }}</h3>
         <div class="image-container">
             <img src="{{ url_for('static', filename='imgs/' + img_url) }}" class="draggable" data-name="{{ plant_name }}" data-category="{{ plant_label }}">
         </div>
 
-        <button id="nxt" class="nxt-btn">Next question</button>
+        <button id="nxt" class="nxt-btn disable" disabled>Next question</button>
     </div>
     
 
@@ -27,6 +36,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> <!-- Include jQuery UI -->
     <script>
         $(document).ready(function() {
+            let SCORE = -1;
             // Enable draggable for images
             $(".draggable").draggable({
                 revert: true
@@ -38,14 +48,40 @@
                 drop: function(event, ui) {
                     var droppedItem = ui.draggable;
                     var droppedPlant = droppedItem.data("name");
-                    var droppedFoodCategory = droppedItem.data("category");
+                    var droppedPlantCategory = droppedItem.data("category");
                     var category = $(this).data("category");
-                    console.log("Dropped", droppedPlant, "into", category, "true label:", droppedFoodCategory);
+                    console.log("Dropped", droppedPlant, "into", category, "true label:", droppedPlantCategory);
+                    if (category === droppedPlantCategory) {
+                        // Correct category, so don't revert the dragged item
+                        ui.draggable.draggable("option", "revert", false);
+                        // Center the dropped item within the droppable area
+                        var droppableOffset = $(this).offset();
+                        var draggableOffset = ui.offset;
+                        var offsetX = droppableOffset.left - draggableOffset.left + ($(this).outerWidth() - droppedItem.outerWidth()) / 2;
+                        var offsetY = droppableOffset.top - draggableOffset.top + ($(this).outerHeight() - droppedItem.outerHeight()) / 2;
+                        droppedItem.offset({
+                            left: draggableOffset.left + offsetX,
+                            top: draggableOffset.top + offsetY
+                        });
+                        ui.draggable.draggable("disable");
+                        $(this).css("background-color", "green");
+
+                        $("#nxt").prop("disabled", false).addClass("ready").removeClass("disable");
+                        if(SCORE < 0) SCORE = 1;
+                    } else {
+                        // Incorrect category, revert the dragged item
+                        // ui.draggable.draggable("option", "revert", true);
+                        $(this).css("background-color", "red");
+                        if(SCORE < 0) SCORE = 0;
+                    }
                 }
             });
 
             $("#nxt").click(function () {
-                window.location.href = "/quiz/" + "{{ nxt_id }}"
+                const urlparams = new URLSearchParams(window.location.search)
+                const curScore = parseInt(urlparams.get('score'), 10);
+                const newScore = curScore + SCORE;
+                window.location.href = "/quiz/" + "{{ nxt_id }}" + "?score=" + newScore.toString()
             })
             // Submit quiz button
             // $("#submit-btn").click(function() {
