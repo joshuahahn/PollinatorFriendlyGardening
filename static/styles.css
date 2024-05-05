@@ -55,6 +55,7 @@ main {
     height: 60px;
     cursor: pointer;
 }
+
 .disable {
     background-color: #d9d9d9;
 }
@@ -355,4 +356,18 @@ main {
     padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.glyphicon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+}
+
+.justify-right {
+    float: right;
+}
+
+.red-background {
+    background-color: red;
 }

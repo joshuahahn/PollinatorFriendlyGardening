@@ -2,8 +2,6 @@ $(function () {
   let unlockedArray = [];
   let completions = categorizeCompletion(data);
 
-  console.log(completions);
-
   for (let i = 0; i < Object.keys(data).length; i++) {
     createLearningModuleButtons(data[i + 1], completions);
   }
@@ -17,25 +15,23 @@ $(function () {
       let curId = i + 1;
       let cur = learningModuleData[curId];
       completionArray[curId] = {};
-      console.log("completionArray: " + JSON.stringify(learningModuleData));
-      console.log("completion status: " + cur["completed"]);
 
       if (cur["completed"] == "true") {
         completionArray[curId]["leftIcon"] = "";
         completionArray[curId]["rightIcon"] =
-          '<i class="glyphicon glyphicon-check justify-right"></i>';
+          '<i class="glyphicon glyphicon-check"></i>';
         unlockedArray.push(true);
       } else if (cur["completed"] == "false" && locked == false) {
         locked = true;
         completionArray[curId]["leftIcon"] =
-          '<i class="glyphicon glyphicon-arrow-left justify-right"></i>';
+          '<i class="glyphicon glyphicon-arrow-left"></i>';
         completionArray[curId]["rightIcon"] = "";
         unlockedArray.push(true);
       } else if (locked == true) {
         unlockedArray.push(false);
         completionArray[curId]["leftIcon"] = "";
         completionArray[curId]["rightIcon"] =
-          '<i class="glyphicon glyphicon-lock justify-right"></i>';
+          '<i class="glyphicon glyphicon-lock"></i>';
       }
     }
 
@@ -52,7 +48,7 @@ $(function () {
             <div class=\"col-md-2\">
             </div>
             
-            <div class=\"col-md-8 learning-module-button center-text\">
+            <div class=\"col-md-8 learning-module-button center-text d-flex justify-content-between\">
                 <span class=\"module-title\">${title}</span>${completionArray[id]["leftIcon"]}
                 ${completionArray[id]["rightIcon"]}
             </div>
@@ -61,12 +57,8 @@ $(function () {
 
     $("#main-container").append(newLearningModuleButton);
 
-    console.log(completionArray[id]);
-    console.log("locked array: " + unlockedArray);
     if (unlockedArray[id - 1] == true) {
       newLearningModuleButton.click(function () {
-        console.log("completion array was done");
-        console.log("button clicked: " + id);
         window.location.href = `../learn/${id}`;
       });
     }
