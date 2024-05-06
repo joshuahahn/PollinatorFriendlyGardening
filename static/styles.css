@@ -254,12 +254,12 @@ main {
 }
 
 .learning-module-buttons {
-    height: 80%;
+    height: 60%;
 }
 
 .learning-buttons {
     background-color: var(--lighter-bg);
-    height: calc(100vh - 150px);
+    height: calc(100vh - 400px);
     /* Adjust height to cover remaining vertical space */
     /* Add padding for spacing */
     border-radius: 10px;

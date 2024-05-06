@@ -1,4 +1,8 @@
 $(function () {
+  $("#homeButton").click(function(){
+    window.location.href = "/";
+  })
+
   let unlockedArray = [];
   let completions = categorizeCompletion(data);
 
